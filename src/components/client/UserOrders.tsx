@@ -45,7 +45,7 @@ export function UserOrders() {
                       </ul>
                       <div className="flex justify-between mt-4 font-bold">
                         <span>Total</span>
-                        <span>₹{order.total.toFixed(2)}</span>
+                        <span>Rs. {order.total.toFixed(2)}</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -83,7 +83,7 @@ export function UserOrders() {
                       </ul>
                       <div className="flex justify-between mt-4 font-semibold">
                         <span>Total</span>
-                        <span>₹{order.total.toFixed(2)}</span>
+                        <span>Rs. {order.total.toFixed(2)}</span>
                     </div>
                   </CardContent>
               </Card>

@@ -35,7 +35,7 @@ export function PaymentDialog({ open, onOpenChange, totalAmount, onConfirm }: Pa
             <QRCode value={upiLink} size={192} />
           </div>
           <p className="mt-2 text-sm text-center text-muted-foreground">
-            Payable Amount: <strong>₹{totalAmount.toFixed(2)}</strong>
+            Payable Amount: <strong>Rs. {totalAmount.toFixed(2)}</strong>
           </p>
         </div>
         <DialogFooter>
