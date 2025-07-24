@@ -4,7 +4,7 @@ import type { Cafe } from './types';
 export const cafes: Cafe[] = [
   {
     id: 'chennai-express',
-    name: "TS-1",
+    name: "Chennai Express",
     building: 'TS-1',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'south indian restaurant',
@@ -16,7 +16,7 @@ export const cafes: Cafe[] = [
   },
   {
     id: 'mysore-masala',
-    name: 'TS-2',
+    name: 'Mysore Masala',
     building: 'TS-2',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'indian food',
@@ -28,7 +28,7 @@ export const cafes: Cafe[] = [
   },
   {
     id: 'kerala-kitchen',
-    name: "TS-3",
+    name: "Kerala Kitchen",
     building: 'TS-3',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'kerala food',
@@ -40,7 +40,7 @@ export const cafes: Cafe[] = [
   },
   {
     id: 'andhra-spice',
-    name: "TS-4",
+    name: "Andhra Spice",
     building: 'TS-4',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'andhra food',
@@ -52,7 +52,7 @@ export const cafes: Cafe[] = [
   },
   {
     id: 'udupi-delights',
-    name: 'TS-5',
+    name: 'Udupi Delights',
     building: 'TS-5',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'udupi food',
@@ -64,7 +64,7 @@ export const cafes: Cafe[] = [
   },
   {
     id: 'chettinad-cafe',
-    name: "TS-6",
+    name: "Chettinad Cafe",
     building: 'TS-6',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'chettinad food',
