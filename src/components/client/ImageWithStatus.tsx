@@ -17,13 +17,37 @@ export function ImageWithStatus({ alt, imageHint, fallbackSrc }: ImageWithStatus
 
   useEffect(() => {
     let isMounted = true;
+    const cacheKey = `ai-image-cache-${imageHint}`;
+
     const fetchImage = async () => {
+      // Check cache first
+      try {
+        const cachedImage = localStorage.getItem(cacheKey);
+        if (cachedImage) {
+          if (isMounted) {
+            setImageUrl(cachedImage);
+            setIsLoading(false);
+          }
+          return;
+        }
+      } catch (e) {
+        console.warn("Could not access localStorage for caching.", e)
+      }
+
+
+      // If not in cache, generate it
       setIsLoading(true);
       setError(null);
       try {
         const result = await generateImage({ prompt: imageHint });
         if (isMounted) {
             setImageUrl(result.imageUrl);
+            // Save to cache
+            try {
+                localStorage.setItem(cacheKey, result.imageUrl);
+            } catch (e) {
+                console.warn("Could not save image to localStorage.", e);
+            }
         }
       } catch (err) {
         console.error(`Failed to generate image for hint: ${imageHint}`, err);
