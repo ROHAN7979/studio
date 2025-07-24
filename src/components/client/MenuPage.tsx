@@ -11,6 +11,7 @@ import { Clock, Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useMemo, useEffect } from 'react';
+import { PaymentDialog } from './PaymentDialog';
 
 type MenuPageProps = {
   cafe: Cafe;
@@ -21,6 +22,7 @@ export function MenuPage({ cafe }: MenuPageProps) {
   const [isOrdering, setIsOrdering] = useState(false);
   const [estimatedTime, setEstimatedTime] = useState<string | null>(null);
   const [isPredicting, setIsPredicting] = useState(true);
+  const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
   
   const { addOrder } = useOrders();
   const router = useRouter();
@@ -69,7 +71,7 @@ export function MenuPage({ cafe }: MenuPageProps) {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }, [cart]);
 
-  const handlePlaceOrder = async () => {
+  const handlePlaceOrder = () => {
     if (!estimatedTime) {
         toast({
             variant: "destructive",
@@ -78,8 +80,15 @@ export function MenuPage({ cafe }: MenuPageProps) {
         });
         return;
     }
+    setIsPaymentDialogOpen(true);
+  };
+  
+  const handleConfirmPayment = async () => {
+    if (!estimatedTime) return;
     
     setIsOrdering(true);
+    setIsPaymentDialogOpen(false);
+    
     const orderId = `CCC-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
     const newOrder = {
       id: orderId,
@@ -97,6 +106,7 @@ export function MenuPage({ cafe }: MenuPageProps) {
   };
 
   return (
+    <>
     <div className="container grid gap-12 py-8 md:grid-cols-3 lg:grid-cols-4">
       <div className="md:col-span-2 lg:col-span-3">
         <div className="space-y-2">
@@ -180,5 +190,12 @@ export function MenuPage({ cafe }: MenuPageProps) {
         </Card>
       </aside>
     </div>
+    <PaymentDialog 
+        open={isPaymentDialogOpen}
+        onOpenChange={setIsPaymentDialogOpen}
+        totalAmount={cartTotal}
+        onConfirm={handleConfirmPayment}
+    />
+    </>
   );
 }
