@@ -1,40 +1,41 @@
+
 import type { Cafe } from './types';
 
 export const cafes: Cafe[] = [
   {
-    id: 'engineering-cafe',
-    name: "The Integrator's Brew",
-    building: 'Engineering & Tech Building',
+    id: 'chennai-express',
+    name: "Chennai Express",
+    building: 'South Campus Union',
     image: 'https://placehold.co/600x400.png',
-    imageHint: 'modern cafe',
+    imageHint: 'south indian restaurant',
     menu: [
-      { id: 'e1', name: 'Binary Brew Coffee', description: 'Dark roast, strong and bold.', price: 3.50, image: 'https://placehold.co/150x150.png', imageHint: 'coffee cup' },
-      { id: 'e2', name: 'The Algorithm Croissant', description: 'Flaky, buttery, perfectly calculated.', price: 4.00, image: 'https://placehold.co/150x150.png', imageHint: 'croissant' },
-      { id: 'e3', name: 'Data-Driven Danish', description: 'Sweet cheese danish with a berry coulis.', price: 4.50, image: 'https://placehold.co/150x150.png', imageHint: 'danish pastry' },
+      { id: 'e1', name: 'Filter Coffee', description: 'Authentic South Indian filter coffee.', price: 2.50, image: 'https://placehold.co/150x150.png', imageHint: 'filter coffee' },
+      { id: 'e2', name: 'Masala Dosa', description: 'Crispy crepe with a spiced potato filling.', price: 5.00, image: 'https://placehold.co/150x150.png', imageHint: 'masala dosa' },
+      { id: 'e3', name: 'Idli with Sambar', description: 'Steamed rice cakes served with lentil stew.', price: 4.50, image: 'https://placehold.co/150x150.png', imageHint: 'idli sambar' },
     ],
   },
   {
-    id: 'library-cafe',
-    name: 'The Page Turner',
-    building: 'Main Library',
+    id: 'mysore-masala',
+    name: 'Mysore Masala',
+    building: 'Central Library Annex',
     image: 'https://placehold.co/600x400.png',
-    imageHint: 'cozy library',
+    imageHint: 'indian food',
     menu: [
-      { id: 'l1', name: 'Literary Latte', description: 'A smooth, comforting latte.', price: 4.00, image: 'https://placehold.co/150x150.png', imageHint: 'latte art' },
-      { id: 'l2', name: 'Shakespearmint Tea', description: 'Refreshing peppermint herbal tea.', price: 2.50, image: 'https://placehold.co/150x150.png', imageHint: 'tea cup' },
-      { id: 'l3', name: 'Novel Nibbler Scone', description: 'Classic scone with clotted cream and jam.', price: 3.75, image: 'https://placehold.co/150x150.png', imageHint: 'scone' },
+      { id: 'l1', name: 'Medu Vada', description: 'Savory fried lentil doughnuts.', price: 4.00, image: 'https://placehold.co/150x150.png', imageHint: 'medu vada' },
+      { id: 'l2', name: 'Rava Upma', description: 'Thick porridge from dry-roasted semolina.', price: 3.50, image: 'https://placehold.co/150x150.png', imageHint: 'upma' },
+      { id: 'l3', name: 'Vegetable Uttapam', description: 'Thick pancake with vegetable toppings.', price: 5.75, image: 'https://placehold.co/150x150.png', imageHint: 'uttapam' },
     ],
   },
   {
-    id: 'arts-cafe',
-    name: "The Muse's Morsel",
-    building: 'Fine Arts Center',
+    id: 'kerala-kitchen',
+    name: "Kerala Kitchen",
+    building: 'West Wing Gallery',
     image: 'https://placehold.co/600x400.png',
-    imageHint: 'art gallery',
+    imageHint: 'kerala food',
     menu: [
-      { id: 'a1', name: 'Abstract Espresso', description: 'A complex and artistic shot of espresso.', price: 3.00, image: 'https://placehold.co/150x150.png', imageHint: 'espresso shot' },
-      { id: 'a2', name: 'Pastel de Nata', description: 'A creamy, caramelized Portuguese custard tart.', price: 3.50, image: 'https://placehold.co/150x150.png', imageHint: 'custard tart' },
-      { id: 'a3', name: 'Still Life Smoothie', description: 'A beautiful blend of mixed berries and banana.', price: 5.50, image: 'https://placehold.co/150x150.png', imageHint: 'berry smoothie' },
+      { id: 'a1', name: 'Puttu with Kadala Curry', description: 'Steamed cylinders of ground rice with chickpea curry.', price: 6.00, image: 'https://placehold.co/150x150.png', imageHint: 'puttu' },
+      { id: 'a2', name: 'Appam with Stew', description: 'Rice pancake with a creamy vegetable stew.', price: 6.50, image: 'https://placehold.co/150x150.png', imageHint: 'appam stew' },
+      { id: 'a3', name: 'Lemon Rice', description: 'Flavorful rice with lemon, peanuts, and spices.', price: 4.50, image: 'https://placehold.co/150x150.png', imageHint: 'lemon rice' },
     ],
   },
 ];
