@@ -1,4 +1,4 @@
-import { Coffee } from 'lucide-react';
+import { Coffee, History } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
 
@@ -17,6 +17,14 @@ export function Header({ isAdmin = false }: HeaderProps) {
           </span>
         </Link>
         <div className="flex items-center flex-1 gap-4 sm:justify-end">
+            {!isAdmin && (
+              <Button asChild variant="outline">
+                <Link href="/orders">
+                  <History className="mr-2" />
+                  My Orders
+                </Link>
+              </Button>
+            )}
             <Button asChild variant="ghost">
                 <Link href="/">Logout</Link>
             </Button>
