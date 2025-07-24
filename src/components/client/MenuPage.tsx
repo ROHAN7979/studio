@@ -11,7 +11,7 @@ import { Clock, Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useMemo, useEffect } from 'react';
 import { PaymentDialog } from './PaymentDialog';
-import { ImageWithStatus } from './ImageWithStatus';
+import Image from 'next/image';
 
 type MenuPageProps = {
   cafe: Cafe;
@@ -118,10 +118,11 @@ export function MenuPage({ cafe }: MenuPageProps) {
             <Card key={item.id} className="flex flex-col">
               <CardHeader className="flex-grow">
                 <div className="relative w-full h-40 mb-4 overflow-hidden rounded-md">
-                    <ImageWithStatus 
+                    <Image 
+                      src={item.image}
                       alt={item.name}
-                      imageHint={item.imageHint}
-                      fallbackSrc={item.image}
+                      fill
+                      className="object-cover"
                     />
                 </div>
                 <CardTitle className="text-lg font-headline">{item.name}</CardTitle>
