@@ -13,7 +13,7 @@ export function Header({ isAdmin = false }: HeaderProps) {
         <Link href={isAdmin ? "/admin/dashboard" : "/dashboard"} className="flex items-center gap-2 mr-6">
           <Coffee className="w-6 h-6 text-primary" />
           <span className="text-lg font-bold font-headline">
-            Campus Cafe Connect
+            LTTS Smart Eats
           </span>
         </Link>
         <div className="flex items-center flex-1 gap-4 sm:justify-end">

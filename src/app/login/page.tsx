@@ -9,7 +9,7 @@ export default function UserLoginPage() {
       <div className="absolute top-4 left-4">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary">
           <Coffee className="w-8 h-8"/>
-          <span className="font-headline">Campus Cafe Connect</span>
+          <span className="font-headline">LTTS Smart Eats</span>
         </Link>
       </div>
       <Card className="w-full max-w-sm mx-4">

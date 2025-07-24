@@ -3,7 +3,7 @@ import './globals.css';
 import { Providers } from '@/components/client/Providers';
 
 export const metadata: Metadata = {
-  title: 'Campus Cafe Connect',
+  title: 'LTTS Smart Eats',
   description: 'Order from your campus cafe with ease.',
 };
 

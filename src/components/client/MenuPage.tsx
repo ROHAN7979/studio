@@ -124,7 +124,7 @@ export function MenuPage({ cafe }: MenuPageProps) {
                 <CardDescription>{item.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                 <p className="font-semibold text-primary">${item.price.toFixed(2)}</p>
+                 <p className="font-semibold text-primary">₹{item.price.toFixed(2)}</p>
               </CardContent>
               <CardFooter>
                 <Button className="w-full font-bold" onClick={() => addToCart(item)}>
@@ -161,7 +161,7 @@ export function MenuPage({ cafe }: MenuPageProps) {
                     <div key={item.id} className="flex items-center justify-between">
                       <div>
                         <p className="font-medium">{item.name}</p>
-                        <p className="text-sm text-muted-foreground">${item.price.toFixed(2)}</p>
+                        <p className="text-sm text-muted-foreground">₹{item.price.toFixed(2)}</p>
                       </div>
                       <div className="flex items-center gap-1">
                           <Button variant="outline" size="icon" className="w-6 h-6" onClick={() => updateQuantity(item.id, item.quantity - 1)}><Minus className="w-3 h-3"/></Button>
@@ -175,7 +175,7 @@ export function MenuPage({ cafe }: MenuPageProps) {
                 <Separator/>
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>₹{cartTotal.toFixed(2)}</span>
                 </div>
               </div>
             )}

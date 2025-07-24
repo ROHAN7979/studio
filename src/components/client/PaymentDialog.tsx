@@ -19,7 +19,7 @@ interface PaymentDialogProps {
 }
 
 export function PaymentDialog({ open, onOpenChange, totalAmount, onConfirm }: PaymentDialogProps) {
-  const upiLink = `upi://pay?pa=campus-cafe@payment&am=${totalAmount.toFixed(2)}&tn=Campus%20Cafe%20Order`;
+  const upiLink = `upi://pay?pa=ltts-smart-eats@payment&am=${totalAmount.toFixed(2)}&tn=LTTS%20Smart%20Eats%20Order`;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -35,7 +35,7 @@ export function PaymentDialog({ open, onOpenChange, totalAmount, onConfirm }: Pa
             <QRCode value={upiLink} size={192} />
           </div>
           <p className="mt-2 text-sm text-center text-muted-foreground">
-            Payable Amount: <strong>${totalAmount.toFixed(2)}</strong>
+            Payable Amount: <strong>₹{totalAmount.toFixed(2)}</strong>
           </p>
         </div>
         <DialogFooter>

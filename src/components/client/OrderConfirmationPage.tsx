@@ -67,7 +67,7 @@ export function OrderConfirmationPage({ orderId }: Props) {
                 </div>
                 <div>
                     <p className="text-sm text-muted-foreground">Total Amount</p>
-                    <p className="text-lg font-semibold">${order.total.toFixed(2)}</p>
+                    <p className="text-lg font-semibold">₹{order.total.toFixed(2)}</p>
                 </div>
                 <Button asChild className="w-full font-bold">
                     <Link href="/dashboard">Order More Food</Link>

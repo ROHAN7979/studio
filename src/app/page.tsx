@@ -8,7 +8,7 @@ export default function Home() {
       <div className="absolute top-0 left-0 p-4 md:p-6">
         <div className="flex items-center gap-2 text-xl font-bold text-primary md:text-2xl">
           <Coffee className="w-8 h-8"/>
-          <span className="font-headline">Campus Cafe Connect</span>
+          <span className="font-headline">LTTS Smart Eats</span>
         </div>
       </div>
       <div className="space-y-4">

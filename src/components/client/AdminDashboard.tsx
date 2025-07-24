@@ -62,7 +62,7 @@ export function AdminDashboard() {
                         ))}
                       </ul>
                     </TableCell>
-                    <TableCell className="text-right font-medium">${order.total.toFixed(2)}</TableCell>
+                    <TableCell className="text-right font-medium">₹{order.total.toFixed(2)}</TableCell>
                     <TableCell className="text-center">
                       <Badge variant="secondary">{order.status}</Badge>
                     </TableCell>
@@ -90,7 +90,7 @@ export function AdminDashboard() {
                           ))}
                         </ul>
                       </TableCell>
-                      <TableCell className="text-right font-medium text-muted-foreground">${order.total.toFixed(2)}</TableCell>
+                      <TableCell className="text-right font-medium text-muted-foreground">₹{order.total.toFixed(2)}</TableCell>
                       <TableCell className="text-center">
                         <Badge variant="default" className="opacity-70">{order.status}</Badge>
                       </TableCell>
