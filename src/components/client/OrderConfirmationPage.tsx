@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import type { Order } from '@/lib/types';
 import { CircleCheck, Clock } from 'lucide-react';
+import QRCode from "react-qr-code";
 
 type Props = {
     orderId: string;
@@ -49,8 +50,11 @@ export function OrderConfirmationPage({ orderId }: Props) {
             </CardHeader>
             <CardContent className="space-y-6">
                 <div>
-                    <p className="text-sm text-muted-foreground">Your Order Token</p>
-                    <Badge variant="outline" className="px-6 py-2 text-2xl font-bold tracking-widest text-accent-foreground bg-accent border-accent">
+                     <p className="mb-2 text-sm text-muted-foreground">Your Order Token</p>
+                    <div className="flex justify-center p-4 bg-white rounded-lg">
+                       <QRCode value={order.id} size={128} />
+                    </div>
+                     <Badge variant="outline" className="px-6 py-2 mt-4 text-2xl font-bold tracking-widest text-accent-foreground bg-accent border-accent">
                         {order.id}
                     </Badge>
                 </div>
