@@ -2,8 +2,8 @@
 
 import type { Cafe } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Image from 'next/image';
 import Link from 'next/link';
+import { ImageWithStatus } from './ImageWithStatus';
 
 type CafeDashboardProps = {
   cafes: Cafe[];
@@ -16,12 +16,10 @@ export function CafeDashboard({ cafes }: CafeDashboardProps) {
         <Link href={`/menu/${cafe.id}`} key={cafe.id} className="block group">
           <Card className="overflow-hidden transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:-translate-y-1">
             <div className="relative w-full h-48">
-              <Image
-                src={cafe.image}
+              <ImageWithStatus 
                 alt={`Image of ${cafe.name}`}
-                fill
-                className="object-cover"
-                data-ai-hint={cafe.imageHint}
+                imageHint={cafe.imageHint}
+                fallbackSrc={cafe.image}
               />
             </div>
             <CardHeader>

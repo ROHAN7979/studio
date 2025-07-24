@@ -8,10 +8,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { Clock, Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useMemo, useEffect } from 'react';
 import { PaymentDialog } from './PaymentDialog';
+import { ImageWithStatus } from './ImageWithStatus';
 
 type MenuPageProps = {
   cafe: Cafe;
@@ -118,7 +118,11 @@ export function MenuPage({ cafe }: MenuPageProps) {
             <Card key={item.id} className="flex flex-col">
               <CardHeader className="flex-grow">
                 <div className="relative w-full h-40 mb-4 overflow-hidden rounded-md">
-                    <Image src={item.image} alt={item.name} fill className="object-cover" data-ai-hint={item.imageHint}/>
+                    <ImageWithStatus 
+                      alt={item.name}
+                      imageHint={item.imageHint}
+                      fallbackSrc={item.image}
+                    />
                 </div>
                 <CardTitle className="text-lg font-headline">{item.name}</CardTitle>
                 <CardDescription>{item.description}</CardDescription>
