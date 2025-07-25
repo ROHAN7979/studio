@@ -90,7 +90,7 @@ export function OrderAnalysis() {
             <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={analysis.popularItems} layout="vertical" margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis type="number" />
+                    <XAxis type="number" allowDecimals={false} />
                     <YAxis dataKey="name" type="category" width={120} />
                     <Tooltip />
                     <Legend />
@@ -108,7 +108,7 @@ export function OrderAnalysis() {
               <ResponsiveContainer width="100%" height={analysis.prebookedMeals.length * 60 + 40}>
                   <BarChart data={analysis.prebookedMeals} layout="vertical" margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis type="number" />
+                      <XAxis type="number" allowDecimals={false} />
                       <YAxis dataKey="name" type="category" width={120}/>
                       <Tooltip />
                       <Legend />
