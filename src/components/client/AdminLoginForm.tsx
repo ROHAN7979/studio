@@ -7,6 +7,9 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useState } from 'react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AlertCircle } from 'lucide-react';
 
 const formSchema = z.object({
   username: z.string().min(1, { message: 'Username is required.' }),
@@ -15,6 +18,7 @@ const formSchema = z.object({
 
 export function AdminLoginForm() {
   const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -24,17 +28,27 @@ export function AdminLoginForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    setError(null);
     // Mock login logic
     if (values.username === 'admin' && values.password === 'password') {
         router.push('/admin/manage');
     } else {
-        alert('Invalid credentials');
+        setError('Invalid username or password.');
     }
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        {error && (
+            <Alert variant="destructive">
+                <AlertCircle className="w-4 h-4" />
+                <AlertTitle>Login Failed</AlertTitle>
+                <AlertDescription>
+                    {error}
+                </AlertDescription>
+            </Alert>
+        )}
         <FormField
           control={form.control}
           name="username"

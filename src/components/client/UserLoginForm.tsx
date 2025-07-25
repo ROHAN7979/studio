@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/input';
 
 const formSchema = z.object({
   psNumber: z.string().min(1, { message: 'PS Number is required.' }),
-  password: z.string().min(1, { message: 'Password is required.' }),
 });
 
 export function UserLoginForm() {
@@ -19,7 +18,6 @@ export function UserLoginForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       psNumber: '',
-      password: '',
     },
   });
 
@@ -40,19 +38,6 @@ export function UserLoginForm() {
               <FormLabel>PS Number</FormLabel>
               <FormControl>
                 <Input placeholder="e.g., 1234567" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input type="password" placeholder="••••••••" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
