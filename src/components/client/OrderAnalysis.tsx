@@ -102,14 +102,14 @@ export function OrderAnalysis() {
       {analysis.prebookedMeals.length > 0 && (
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Pre-booked Meal Analysis</CardTitle>
+            <CardTitle>Pre-booked Thali Analysis</CardTitle>
           </CardHeader>
           <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={analysis.prebookedMeals} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
+              <ResponsiveContainer width="100%" height={analysis.prebookedMeals.length * 60 + 40}>
+                  <BarChart data={analysis.prebookedMeals} layout="vertical" margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis allowDecimals={false}/>
+                      <XAxis type="number" />
+                      <YAxis dataKey="name" type="category" width={120}/>
                       <Tooltip />
                       <Legend />
                       <Bar dataKey="Times Pre-booked" fill="hsl(var(--chart-2))" />
