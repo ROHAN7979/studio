@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useOrders } from '@/hooks/use-orders';
@@ -12,7 +11,7 @@ export function OrderAnalysis() {
 
   const analysis = useMemo(() => {
     if (orders.length === 0) {
-      return { topCustomers: [], popularItems: [] };
+      return { topCustomers: [], popularItems: [], prebookedMeals: [] };
     }
 
     // Customer analysis
@@ -27,17 +26,30 @@ export function OrderAnalysis() {
 
     // Item analysis
     const itemCounts = new Map<string, number>();
+    const prebookedCounts = new Map<string, number>();
+
     orders.forEach(order => {
       order.items.forEach(item => {
+        // Increment total item counts
         itemCounts.set(item.name, (itemCounts.get(item.name) || 0) + item.quantity);
+        
+        // Increment pre-booked counts if applicable
+        if (item.description.includes('(Pre-book only)')) {
+          prebookedCounts.set(item.name, (prebookedCounts.get(item.name) || 0) + item.quantity);
+        }
       });
     });
+
     const popularItems = Array.from(itemCounts.entries())
       .map(([name, count]) => ({ name, 'Times Ordered': count }))
       .sort((a, b) => b['Times Ordered'] - a['Times Ordered'])
       .slice(0, 5);
 
-    return { topCustomers, popularItems };
+    const prebookedMeals = Array.from(prebookedCounts.entries())
+      .map(([name, count]) => ({ name, 'Times Pre-booked': count }))
+      .sort((a, b) => b['Times Pre-booked'] - a['Times Pre-booked']);
+
+    return { topCustomers, popularItems, prebookedMeals };
   }, [orders]);
 
   if (orders.length === 0) {
@@ -52,7 +64,7 @@ export function OrderAnalysis() {
   }
 
   return (
-    <div className="grid gap-8 md:grid-cols-2">
+    <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
       <Card>
         <CardHeader>
           <CardTitle>Top 5 Customers</CardTitle>
@@ -87,6 +99,25 @@ export function OrderAnalysis() {
             </ResponsiveContainer>
         </CardContent>
       </Card>
+      {analysis.prebookedMeals.length > 0 && (
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Pre-booked Meal Analysis</CardTitle>
+          </CardHeader>
+          <CardContent>
+              <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={analysis.prebookedMeals} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis allowDecimals={false}/>
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="Times Pre-booked" fill="hsl(var(--chart-2))" />
+                  </BarChart>
+              </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
