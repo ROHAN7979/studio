@@ -1,6 +1,5 @@
 import { CafeDashboard } from '@/components/client/CafeDashboard';
 import { Header } from '@/components/Header';
-import { cafes } from '@/lib/data';
 
 export default function DashboardPage() {
   return (
@@ -13,7 +12,7 @@ export default function DashboardPage() {
             <p className="text-muted-foreground">Choose a building to see the menu and place an order.</p>
           </div>
           <div className="mt-8">
-            <CafeDashboard cafes={cafes} />
+            <CafeDashboard />
           </div>
         </div>
       </main>

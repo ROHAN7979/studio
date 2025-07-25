@@ -1,7 +1,7 @@
 
 import type { Cafe } from './types';
 
-export const cafes: Cafe[] = [
+export const initialCafes: Cafe[] = [
   {
     id: 'chennai-express',
     name: "Chennai Express",

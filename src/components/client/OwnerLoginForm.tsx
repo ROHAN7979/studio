@@ -13,7 +13,7 @@ const formSchema = z.object({
   password: z.string().min(1, { message: 'Password is required.' }),
 });
 
-export function AdminLoginForm() {
+export function OwnerLoginForm() {
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -25,11 +25,8 @@ export function AdminLoginForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Mock login logic
-    if (values.username === 'admin' && values.password === 'password') {
-        router.push('/admin/manage');
-    } else {
-        alert('Invalid credentials');
-    }
+    console.log(values);
+    router.push('/owner/dashboard');
   }
 
   return (
@@ -42,7 +39,7 @@ export function AdminLoginForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="admin" {...field} />
+                <Input placeholder="owner" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -55,7 +52,7 @@ export function AdminLoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="password" {...field} />
+                <Input type="password" placeholder="••••••••" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

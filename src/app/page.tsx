@@ -26,8 +26,8 @@ export default function Home() {
           </Link>
         </Button>
         <Button asChild size="lg" variant="secondary" className="font-bold">
-          <Link href="/admin/login">
-            <ShieldCheck className="mr-2"/> Admin Login
+          <Link href="/owner/login">
+            <ShieldCheck className="mr-2"/> Owner Login
           </Link>
         </Button>
       </div>

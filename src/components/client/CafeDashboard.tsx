@@ -1,15 +1,14 @@
 'use client';
 
 import type { Cafe } from '@/lib/types';
+import { useCafes } from '@/hooks/use-cafes';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 import Image from 'next/image';
 
-type CafeDashboardProps = {
-  cafes: Cafe[];
-};
+export function CafeDashboard() {
+  const { cafes } = useCafes();
 
-export function CafeDashboard({ cafes }: CafeDashboardProps) {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {cafes.map((cafe) => (
@@ -21,6 +20,7 @@ export function CafeDashboard({ cafes }: CafeDashboardProps) {
                 alt={`Image of ${cafe.name}`}
                 fill
                 className="object-cover"
+                data-ai-hint={cafe.imageHint}
               />
             </div>
             <CardHeader>
