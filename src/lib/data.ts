@@ -13,6 +13,7 @@ export const cafes: Cafe[] = [
       { id: 'e2', name: 'Masala Dosa', description: 'Golden-crisp crepe filled with a savory potato masala. A timeless classic.', price: 5.00, image: '/images/masala-dosa.png', imageHint: 'masala dosa' },
       { id: 'e3', name: 'Idli with Sambar', description: 'Soft, fluffy steamed rice cakes paired with a flavorful lentil sambar.', price: 4.50, image: '/images/idli-sambar.png', imageHint: 'idli sambar' },
       { id: 'thali-north', name: 'North Indian Thali', description: 'A hearty platter with dal, sabzi, roti, rice, and salad. (Pre-book only)', price: 12.00, image: 'https://placehold.co/150x150.png', imageHint: 'north indian thali' },
+      { id: 'thali-south', name: 'South Indian Thali', description: 'A traditional spread with sambar, rasam, poriyal, rice, and appalam. (Pre-book only)', price: 10.00, image: 'https://placehold.co/150x150.png', imageHint: 'south indian thali' },
     ],
   },
   {
@@ -38,6 +39,7 @@ export const cafes: Cafe[] = [
       { id: 'a2', name: 'Appam with Stew', description: 'Lacy, soft-centered rice pancakes, perfect for our creamy vegetable stew.', price: 6.50, image: '/images/appam-stew.png', imageHint: 'appam stew' },
       { id: 'a3', name: 'Lemon Rice', description: 'Tangy rice brightened with lemon, crunchy peanuts, and fragrant spices.', price: 4.50, image: '/images/lemon-rice.png', imageHint: 'lemon rice' },
       { id: 'thali-south', name: 'South Indian Thali', description: 'A traditional spread with sambar, rasam, poriyal, rice, and appalam. (Pre-book only)', price: 10.00, image: 'https://placehold.co/150x150.png', imageHint: 'south indian thali' },
+      { id: 'thali-north', name: 'North Indian Thali', description: 'A hearty platter with dal, sabzi, roti, rice, and salad. (Pre-book only)', price: 12.00, image: 'https://placehold.co/150x150.png', imageHint: 'north indian thali' },
     ],
   },
   {
