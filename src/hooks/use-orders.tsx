@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 
 interface OrdersContextType {
   orders: Order[];
-  addOrder: (order: Order) => void;
+  addOrder: (order: Omit<Order, 'userId' | 'status'>) => void;
   updateOrderStatus: (orderId: string, status: 'Pending' | 'Completed') => void;
   clearOrders: () => void;
 }
@@ -13,6 +13,8 @@ interface OrdersContextType {
 const OrdersContext = createContext<OrdersContextType | undefined>(undefined);
 
 const ORDERS_STORAGE_KEY = 'campus-cafe-orders';
+const USER_ID_STORAGE_KEY = 'currentUserPsNumber';
+
 
 export const OrdersProvider = ({ children }: { children: ReactNode }) => {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -38,8 +40,14 @@ export const OrdersProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const addOrder = (order: Order) => {
-    const updatedOrders = [...orders, order];
+  const addOrder = (order: Omit<Order, 'userId' | 'status'>) => {
+    const userId = localStorage.getItem(USER_ID_STORAGE_KEY) || 'guest';
+    const newOrder: Order = {
+        ...order,
+        userId,
+        status: 'Pending',
+    }
+    const updatedOrders = [...orders, newOrder];
     saveOrders(updatedOrders);
   };
 

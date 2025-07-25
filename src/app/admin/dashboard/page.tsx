@@ -1,5 +1,7 @@
 import { AdminDashboard } from '@/components/client/AdminDashboard';
+import { OrderAnalysis } from '@/components/client/OrderAnalysis';
 import { Header } from '@/components/Header';
+import { Separator } from '@/components/ui/separator';
 
 export default function AdminDashboardPage() {
     return (
@@ -13,6 +15,16 @@ export default function AdminDashboardPage() {
                     </div>
                     <div className="mt-8">
                        <AdminDashboard />
+                    </div>
+
+                    <Separator className="my-12" />
+                    
+                    <div className="space-y-2">
+                        <h2 className="text-3xl font-bold tracking-tight font-headline">Order Analysis</h2>
+                        <p className="text-muted-foreground">Insights into customer orders and popular items.</p>
+                    </div>
+                     <div className="mt-8">
+                        <OrderAnalysis />
                     </div>
                 </div>
             </main>

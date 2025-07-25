@@ -21,7 +21,8 @@ export interface CartItem extends MenuItem {
 }
 
 export interface Order {
-  id: string;
+  id:string;
+  userId: string;
   items: CartItem[];
   total: number;
   estimatedTime: string;

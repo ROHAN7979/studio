@@ -90,14 +90,12 @@ export function MenuPage({ cafe }: MenuPageProps) {
     setIsPaymentDialogOpen(false);
     
     const orderId = `CCC-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
-    const newOrder = {
+    addOrder({
       id: orderId,
       items: cart,
       total: cartTotal,
       estimatedTime: estimatedTime,
-      status: 'Pending' as const,
-    };
-    addOrder(newOrder);
+    });
 
     await new Promise(resolve => setTimeout(resolve, 1000));
     

@@ -25,7 +25,7 @@ export function UserLoginForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Mock login logic
-    console.log(values);
+    localStorage.setItem('currentUserPsNumber', values.psNumber);
     router.push('/dashboard');
   }
 
